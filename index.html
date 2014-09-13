@@ -7,75 +7,74 @@
 <body>
 
 <div id="outer">
-<canvas id="c" width="1000" height="1000"></canvas>
-<div id="providers-title" class="rounded institution">
-  <p>Capital Providers</p>
-</div>
+  <canvas id="c" width="1000" height="1000"></canvas>
+  <div id="providers-title" class="rounded institution">
+    <p>Capital Providers</p>
+  </div>
 
-<div id="providers" class="rounded institution">
-  <div class="sub-inst rounded">
-    <p>Big Society Capital</p>
+  <div id="providers" class="rounded institution">
+    <div class="sub-inst rounded">
+      <p>Big Society Capital</p>
+    </div>
+    <div id="endowments" class="sub-inst rounded">
+      <p>Endowments &amp; foundations</p>
+    </div>
+    <div class="sub-inst rounded">
+      <p>Private investors and Offices</p>
+    </div>
+    <div class="sub-inst rounded">
+      <p>Retail Clients</p>
+    </div>
+    <div id="non-financial" class="sub-inst rounded">
+      <p>Non-Financial Corporations</p>
+    </div>
+    <div id="financial" class="sub-inst rounded">
+      <p>Financial Corporations</p>
+    </div>
+    <div id="institutional" class="sub-inst rounded">
+      <p>Institutional Funds</p>
+    </div>
+    <div id="government" class="sub-inst rounded">
+      <p>Government</p>
+    </div>
   </div>
-  <div id="endowments" class="sub-inst rounded">
-    <p>Endowments &amp; foundations</p>
-  </div>
-  <div class="sub-inst rounded">
-    <p>Private investors and Offices</p>
-  </div>
-  <div class="sub-inst rounded">
-    <p>Retail Clients</p>
-  </div>
-  <div id="non-financial" class="sub-inst rounded">
-    <p>Non-Financial Corporations</p>
-  </div>
-  <div id="financial" class="sub-inst rounded">
-    <p>Financial Corporations</p>
-  </div>
-  <div id="institutional" class="sub-inst rounded">
-    <p>Institutional Funds</p>
-  </div>
-  <div id="government" class="sub-inst rounded">
-    <p>Government</p>
-  </div>
-</div>
 
-<div id="depository" class="rounded institution">
-  <p>Depository Institutions</p>
-</div>
-
-<div id="targets" class="rounded institution">
-  <p>Investment Targets<br>(social ventures)</p>
-</div>
-
-<div id="funds" class="rounded institution">
-  <div class="sub-inst rounded">
-    <p id="ifunds">Investment Funds</p>
+  <div id="depository" class="rounded institution">
+    <p>Depository Institutions</p>
   </div>
-  <div class="sub-inst rounded">
-    <p id="managers">Fund Managers</p>
+
+  <div id="targets" class="rounded institution">
+    <p>Investment Targets<br>(social ventures)</p>
   </div>
-</div>
 
-<div id="intermediaries" class="rounded institution">
-  <p>Intermediaries</p>
-  <ul>
-    <li id="f-advisors">Financial Advisors</li>
-    <li id="l-advisors">Legal Advisors</li>
-    <li id="i-advisors">Impact Advisors</li>
-    <li id="business">Business Support</li>
-    <li id="auditors">Auditors</li>
-  </ul>
-</div>
+  <div id="funds" class="rounded institution">
+    <div class="sub-inst rounded" id="ifunds">
+      <p>Investment Funds</p>
+    </div>
+    <div class="sub-inst rounded" id="managers">
+      <p>Fund Managers</p>
+    </div>
+  </div>
 
-<div id="marketplace" class="rounded institution">
-  <p>Marketplace: connectors and arrangers</p>
-</div>
+  <div id="intermediaries" class="rounded institution">
+    <p>Intermediaries</p>
+    <div class="sub-inst rounded" id="f-advisors">Financial Advisors</div>
+    <div class="sub-inst rounded" id="l-advisors">Legal Advisors</div>
+    <div class="sub-inst rounded" id="i-advisors">Impact Advisors</div>
+    <div class="sub-inst rounded" id="business">Business Support</div>
+    <div class="sub-inst rounded" id="auditors">Auditors</div>
+  </div>
+
+  <div id="marketplace" class="rounded institution">
+    <p>Marketplace: connectors and arrangers</p>
+  </div>
 
 </div>
 
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
   <script src="script.js"></script>
+  <div id="tooltip"></div>
+  <div id="tooltip-bg"></div>
 </body>
 </html>
 

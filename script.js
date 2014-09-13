@@ -183,6 +183,7 @@ context.fillStyle = '#56CC1E';
 context.fillText('Advice & Services', 560, 560);
 
 $(function(){
+  $('#tooltip, #tooltip-bg').hide();
   var boxes = {
     "auditors": ["KPMG", "PWC", "BDO LLP", "Deloitte LLP"],
     "business": ["UnLtd", "Shaftesbury Partnership", "School for Social Entrepreneurs", "the Young Foundation", "Social Enterprise UK", "VitalSix"],
@@ -200,13 +201,27 @@ $(function(){
     "non-financial": ["Centrica", "Telefonica", "Places for People", "Salesforce"]
   };
 
-  $.each(boxes, function(boxId, names) {
-    $('#' + boxId).attr('title', names.join('<br>'));
-  })
+  var show_tooltip = function(html){
+    $('#tooltip-bg').show();
+    $('#tooltip').html(html).show(); 
+  };
 
-  $(document).tooltip({
-    content: function () {
-      return $(this).prop('title');
-    }
+  var hide_tooltip = function(){
+    $('#tooltip-bg').hide();
+    $('#tooltip').hide(); 
+  };
+
+  $.each(boxes, function(boxId, names) {
+    var name_string = "";
+    $(names).each(function(index, element){ 
+      name_string +=  '<li>' + element + "</li>"; 
+    });
+    $('#' + boxId).addClass('clickable');
+    $('#' + boxId).on('click', function(){
+      show_tooltip(name_string);
+    });
+  });
+  $('#tooltip, #tooltip-bg').on('click', function(){
+    hide_tooltip();
   });
 });

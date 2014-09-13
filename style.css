@@ -3,7 +3,7 @@ canvas {
 }
 
 div.rounded {
-  border: 2px solid;
+  border: 1px solid #333;
   border-radius: 12px;
   box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
 }
@@ -19,8 +19,8 @@ div.rounded {
 
 div.institution {
   position: absolute;
-  padding: 5px;
-  background-color: #3F4CFF;
+  padding: 2px;
+  background-color: #ccc;
   overflow: auto;
 }
 
@@ -32,11 +32,12 @@ div.sub-inst {
   color: white;
   margin: 10px;
   padding: 2px;
+  display:inline-block;
 }
 
 div.sub-inst p {
-  font-size: 8px;
-  margin: 10px;
+  font-size: 16px;
+  margin: 5px;
 }
 
 #providers-title {
@@ -63,7 +64,7 @@ div.sub-inst p {
   top: 210px;
   left: 780px;
   width: 200px;
-  height: 100px;
+  height: 75px;
 }
 
 #funds {
@@ -102,3 +103,42 @@ div.sub-inst p {
   float: left;
   width: 50%;
 }
+
+#tooltip{
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:300px;
+  height:300px;
+  text-align: center;
+  margin:-150px;
+  z-index:1000;
+  color:white;
+  background:#333;
+  border-radius:5px;
+}
+#tooltip li{
+  display:inline-block;
+  list-style:none;
+  padding:5px;
+  border-radius:5px;
+  background:#222;
+  margin:5px;
+}
+#tooltip-bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#333;
+  background:rgba(150,150,150,0.5);
+  z-index:999;
+}
+.clickable, .institution.clickable{
+  background-color:#aaa;
+  cursor:pointer;
+}
+.clickable:hover{
+  border-color:white;
+};
