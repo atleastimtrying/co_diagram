@@ -10,8 +10,17 @@
   stroke: #666;
   stroke-width: 1.5px;
 }
+.marker{
+  fill:green;
+}
+.Investment{
+  stroke: #363;
+}
+.Return{
+  stroke: #633;
+}
 
-.node circle {
+circle {
   fill: #ccc;
   stroke: #fff;
   stroke-width: 1.5px;
@@ -28,24 +37,24 @@ text {
 <script>
 
 var links = [
-  {source: "Capital Providers", target: "Depository Institutions", label: "Principal", intermediate: "Investment"},
-  {source: "Depository Institutions", target: "Capital Providers", label: "Debt Capital", intermediate: "Return"},
-  {source: "Capital Providers", target: "Investment Funds", label: "Principal", intermediate: "Investment"},
-  {source: "Investment Funds", target: "Capital Providers", label: "Debt Capital", intermediate: "Return"},
-  {source: "Investment Funds", target: "Depository Institutions", label: "Principal", intermediate: "Investment"},
-  {source: "Depository Institutions", target: "Investment Funds", label: "Debt Capital", intermediate: "Return"},
-  {source: "Depository Institutions", target: "Investment Targets (social ventures)", label: "Principal", intermediate: "Investment"},
-  {source: "Investment Targets (social ventures)", target: "Depository Institutions", label: "Debt Capital", intermediate: "Return"},
-  {source: "Investment Funds", target: "Intermediaries", label: "Fees", intermediate: "Investment"},
-  {source: "Intermediaries", target: "Investment Funds", label: "Advice & Services", intermediate: "Return"},
-  {source: "Investment Targets (social ventures)", target: "Intermediaries", label: "Fees", intermediate: "Investment"},
-  {source: "Intermediaries", target: "Investment Targets (social ventures)", label: "Technical Assistance", intermediate: "Return"},
-  {source: "Investment Funds", target: "Investors", label: "Net Return", intermediate: "Return"},
-  {source: "Investors", target: "Investment Funds", intermediate: "Investment", intermediate: "Investment"},
-  {source: "Investment Targets (social ventures)", target: "Investors", label: "Investment Returns", intermediate: "Return"},
-  {source: "Investors", target: "Investment Targets (social ventures)", label: "Direct Investment", intermediate: "Investment"},
-  {source: "Intermediaries", target: "Investors", label: "Advice & Services", intermediate: "Return"},
-  {source: "Investors", target: "Intermediaries", label: "Fees", intermediate: "Investment"},
+  {source: "Capital Providers", target: "Depository Institutions", label: "Principal", type: "Investment", children: [ 'Jim', 'Bob', 'Pete' ]},
+  {source: "Depository Institutions", target: "Capital Providers", label: "Debt Capital", type: "Return"},
+  {source: "Capital Providers", target: "Investment Funds", label: "Principal", type: "Investment"},
+  {source: "Investment Funds", target: "Capital Providers", label: "Debt Capital", type: "Return"},
+  {source: "Investment Funds", target: "Depository Institutions", label: "Principal", type: "Investment"},
+  {source: "Depository Institutions", target: "Investment Funds", label: "Debt Capital", type: "Return"},
+  {source: "Depository Institutions", target: "Investment Targets (social ventures)", label: "Principal", type: "Investment"},
+  {source: "Investment Targets (social ventures)", target: "Depository Institutions", label: "Debt Capital", type: "Return"},
+  {source: "Investment Funds", target: "Intermediaries", label: "Fees", type: "Investment"},
+  {source: "Intermediaries", target: "Investment Funds", label: "Advice & Services", type: "Return"},
+  {source: "Investment Targets (social ventures)", target: "Intermediaries", label: "Fees", type: "Investment"},
+  {source: "Intermediaries", target: "Investment Targets (social ventures)", label: "Technical Assistance", type: "Return"},
+  {source: "Investment Funds", target: "Investors", label: "Net Return", type: "Return"},
+  {source: "Investors", target: "Investment Funds", type: "Investment", type: "Investment"},
+  {source: "Investment Targets (social ventures)", target: "Investors", label: "Investment Returns", type: "Return"},
+  {source: "Investors", target: "Investment Targets (social ventures)", label: "Direct Investment", type: "Investment"},
+  {source: "Intermediaries", target: "Investors", label: "Advice & Services", type: "Return"},
+  {source: "Investors", target: "Intermediaries", label: "Fees", type: "Investment"},
 ];
 
 var nodes = {};
@@ -56,15 +65,17 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 960,
-    height = 500;
+var width = window.innerWidth,
+  height = window.innerHeight;
+var smaller = Math.min(width, height);
+var radius = smaller * 0.03;
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(60)
-    .charge(-30000)
+    .linkDistance((radius * 7) + 20)
+    .charge(-300)
     .on("tick", tick)
     .start();
 
@@ -72,54 +83,80 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-var link = svg.selectAll(".link")
-    .data(force.links())
-  .enter().append("line")
-    .attr("class", "link");
+// Per-type markers, as they don't inherit styles.
+svg.append("defs").selectAll("marker")
+    .data(["Return", "Investment"])
+  .enter().append("marker")
+    .attr("id", function(d) { return d; })
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", radius + 10)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5");
 
-var node = svg.selectAll(".node")
+var path = svg.append("g").selectAll("path")
+    .data(force.links())
+  .enter().append("path")
+    .attr("id", function(d){ d.label + d.type })
+    .attr("class", function(d) { return "link " + d.type; })
+    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
-  .enter().append("g")
-    .attr("class", "node")
-    .on("mouseover", mouseover)
-    .on("mouseout", mouseout)
-    .on("click", click)
+  .enter().append("circle")
+    .attr("r", radius)
+    .on("click", function(d) {
+      if (focus !== d) zoom(d), d3.event.stopPropagation(); 
+    })
     .call(force.drag);
 
-node.append("circle")
-    .attr("r", 15);
-
-node.append("text")
-    .attr("x", 12)
-    .attr("dy", ".35em")
+var text = svg.append("g").selectAll("text")
+    .data(force.nodes())
+  .enter().append("text")
+    .attr("x", radius + 2)
+    .attr("y", ".31em")
     .text(function(d) { return d.name; });
 
-var click = function(){
-  var circle = d3.select(this).select("circle")
-  if(circle)
-  circle.transition()
-      .duration(750)
-      .attr("r", 40);
-};
+var node = svg.selectAll("circle,text");
 
+// Use elliptical arc path segments to doubly-encode directionality.
 function tick() {
-  link
-      .attr("x1", function(d) { return d.source.x; })
-      .attr("y1", function(d) { return d.source.y; })
-      .attr("x2", function(d) { return d.target.x; })
-      .attr("y2", function(d) { return d.target.y; });
-
-  node
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  path.attr("d", linkArc);
+  circle.attr("transform", transform);
+  text.attr("transform", transform);
 }
 
-function mouseover() {
+function linkArc(d) {
+  var dx = d.target.x - d.source.x,
+      dy = d.target.y - d.source.y,
+      dr = Math.sqrt(dx * dx + dy * dy);
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
 }
 
-function mouseout() {
-  d3.select(this).select("circle").transition()
-      .duration(750)
-      .attr("r", 8);
+function transform(d) {
+  return "translate(" + d.x + "," + d.y + ")";
+}
+
+zoomTo([width/2, height/2, smaller/2 - 40 ]);
+
+function zoom(d) {
+  var focus0 = focus; focus = d;
+
+  var transition = d3.transition()
+    .duration(d3.event.altKey ? 7500 : 750)
+    .tween("zoom", function(d) {
+      var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+      return function(t) { zoomTo(i(t)); };
+    });
+}
+
+function zoomTo(v) {
+  var k = 100 / v[2]; view = v;
+  node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
+  circle.attr("r", function(d) { return d.r * k; });
 }
 
 </script>
