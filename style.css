@@ -1,0 +1,104 @@
+canvas {
+ /* background-color: gray;*/
+}
+
+div.rounded {
+  border: 2px solid;
+  border-radius: 12px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+
+#outer {
+  width: 1000px;
+  /*position: absolute;*/
+}
+
+#outer * {
+  box-sizing: initial;
+}
+
+div.institution {
+  position: absolute;
+  padding: 5px;
+  background-color: #3F4CFF;
+  overflow: auto;
+}
+
+div.institution p {
+  margin: 16px 0px;
+}
+
+div.sub-inst {
+  color: white;
+  margin: 10px;
+  padding: 2px;
+}
+
+div.sub-inst p {
+  font-size: 8px;
+  margin: 10px;
+}
+
+#providers-title {
+  left: 20px;
+  top: 30px;
+  width: 200px;
+  height: 60px;
+}
+
+#providers {
+  left: 20px;
+  top: 110px;
+  width: 200px;
+}
+
+#depository {
+  top: 30px;
+  left: 780px;
+  width: 200px;
+  height: 60px;
+}
+
+#targets {
+  top: 210px;
+  left: 780px;
+  width: 200px;
+  height: 100px;
+}
+
+#funds {
+  top: 210px;
+  left: 400px;
+  width: 200px;
+  height: 104px;
+}
+
+#intermediaries {
+  top: 405px;
+  left: 300px;
+  width: 400px;
+}
+
+#marketplace {
+  top: 640px;
+  left: 20px;
+  width: 960px;
+}
+
+#outer {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+#outer div * {
+  color: white;
+}
+
+#outer div ul {
+  text-align: left;
+}
+
+#outer div ul li {
+  float: left;
+  width: 50%;
+}
