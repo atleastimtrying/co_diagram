@@ -251,7 +251,7 @@ div#showhide_controls div#return_toggle{
   }
 }
 
-@media all and (max-width: 620px){
+@media all and (max-width: 620px) and (min-width: 200px){
   #outer{
     zoom:0.5;
   }
