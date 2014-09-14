@@ -206,3 +206,53 @@ div#showhide_controls div#return_toggle{
 #managers p{
   color:#333;
 }
+
+@media all and (min-width: 1001px){
+  #outer{
+    zoom:1;
+  }
+}
+
+@media all and (max-width: 1000px){
+  div#showhide_controls{
+    position:relative;
+    top: auto;
+    right: auto;
+    text-align: center;
+    padding:8px;
+  }
+  div#showhide_controls div#investment_toggle,
+  div#showhide_controls div#return_toggle{
+    display:inline-block;
+    width:40%;
+    margin-bottom:0;
+  }
+
+  #outer{
+    zoom:0.9;
+  }
+}
+
+@media all and (max-width: 900px){
+  #outer{
+    zoom:0.8;
+  }
+}
+
+@media all and (max-width: 800px){
+  #outer{
+    zoom:0.7;
+  }
+}
+
+@media all and (max-width: 710px){
+  #outer{
+    zoom:0.6;
+  }
+}
+
+@media all and (max-width: 620px){
+  #outer{
+    zoom:0.5;
+  }
+}
