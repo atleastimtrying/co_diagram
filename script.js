@@ -195,19 +195,19 @@ draw();
 $(function(){
   $('#tooltip, #tooltip-bg').hide();
   var boxes = {
-    "auditors": ["KPMG", "PWC", "BDO LLP", "Deloitte LLP"],
+    "auditors": ["KPMG", "PWC", "BDO LLP", "Deloitte LLP", "BDO", "Baker Tilly UK Audit"],
     "business": ["UnLtd", "Shaftesbury Partnership", "School for Social Entrepreneurs", "the Young Foundation", "Social Enterprise UK", "VitalSix"],
     "depository": ["Charity Bank", "Unity Trust Bank", "Triodos Bank", "Ecology Building Society"],
     "endowments": ["Esmee Fairbairn Foundation", "Lankelly Chase Foundation", "Panaphur", "Barrow Cadbury", "Omidyar Network", "City Bridge Trust"],
-    "f-advisors": ["Allia", "Investing for Good", "Finance South East", "Social Finance", "Social Investment Business", "CAN Invest"],
+    "f-advisors": ["Allia", "Investing for Good", "FSE Group", "Social Finance", "Social Investment Business", "CAN Invest"],
     "financial": ["Threadneedle Investments", "Berenberg", "Deutsche Bank", "J.P. Morgan", "3i", "Legal and General"],
-    "government": ["Cabinet Office Social Incubator Fund", "Office for Civil Society"],
+    "government": ["Office for Civil Society", "Department for Work and Pensions", "Department of Health"],
     "i-advisors": ["Intentionality", "The Good Analyst", "New Philanthropy Capital", "New Economics Foundation", "University of Northampton", "Impact Value"],
     "ifunds": ["IV-UK", "Community Generation Fund", "Bridges Social Impact Bond Fund", "Nesta Impact Investment", "Ignite Social Enterprise", "Community Investment Fund", "Threadneedle UK Social Bond Fund", "Key Fund Resilience", "Bridges Social Entrepreneurs Fund", "Wayra UnLtd"],
     "institutional": ["London Borough of Waltham Forest Pension Fund", "European Regional Development Fund", "West Midlands Pension Fund", "Merseyside Pension Fund", "Nesta"],
     "l-advisors": ["Linklaters", "Hogan Lovells", "DLA Piper", "Bates Wells Braithwaite", "Osborne Clarke", "Ashurst"],
     "managers": ["LGT Venture Philanthropy", "Social and Sustainable Capital", "FSE Fund Managers", "Nesta Investment Management", "Social Investment Business", "Bridges Ventures", "Big Issue Invest", "Key Fund", "Threadneedle Investments"],
-    "marketplace": ["EngagedX", "UnLtd", "ClearlySo", "London Stock Exchange", "Social Stock Exchange", "Ethex", "Social Enterprise UK"],
+    "marketplace": ["EngagedX", "UnLtd", "ClearlySo", "London Stock Exchange", "Social Stock Exchange", "Ethex", "Social Enterprise UK", "Ashoka Financial Services"],
     "non-financial": ["Centrica", "Telefonica", "Places for People", "Salesforce"]
   };
 
@@ -248,6 +248,7 @@ $(function(){
   $.each(boxes, function(boxId, names) {
     var title = $('#' + boxId).html();
     var name_string = "<h2>" + title + "</h2>";
+    name_string += '<p>For example</p>'
     $(names).each(function(index, element){ 
       name_string +=  '<li>' + element + "</li>"; 
     });

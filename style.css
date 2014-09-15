@@ -13,6 +13,7 @@ div.rounded {
 
 #outer {
   width: 1000px;
+  height:680px;
   margin: 0 auto;
   position: relative;
 }
@@ -122,6 +123,10 @@ div.sub-inst p {
 #tooltip h2{
   color:#333;
 }
+#tooltip p{
+  color: #333;
+  margin-bottom: 0;
+}
 h2 p {
   margin: 0;
   margin-bottom: 8px;
@@ -160,7 +165,7 @@ div#showhide_controls{
   padding:16px;
   background:#eee;
   color:#333;
-  z-index:3000;
+  z-index:998;
   border-radius:4px;
 }
 div#showhide_controls div{
@@ -205,6 +210,12 @@ div#showhide_controls div#return_toggle{
 }
 #managers p{
   color:#333;
+}
+p.credit{
+  color:#333;
+  font-size:12px;
+  text-align: right;
+  font-style:italic;
 }
 
 @media all and (min-width: 1001px){
