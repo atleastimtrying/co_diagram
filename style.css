@@ -134,11 +134,19 @@ h2 p {
 #tooltip li{
   display:inline-block;
   list-style:none;
+}
+#tooltip li a{
+  display:inline-block;
   padding:5px;
   border-radius:4px;
   background:#eee;
   color:#333;
+  text-decoration:none;
+  cursor:pointer;
   margin:5px;
+}
+#tooltip li a:hover{
+  background:#ddd;
 }
 #tooltip-bg{
   position:fixed;
@@ -210,6 +218,12 @@ div#showhide_controls div#return_toggle{
 }
 #managers p{
   color:#333;
+}
+p.aside{
+  color:#333;
+  font-size:12px;
+  text-align: left;
+  font-style:italic;
 }
 p.credit{
   color:#333;
