@@ -2,6 +2,13 @@ html{
   font-family: 'Lato', sans-serif;
   font-weight:lighter;
 }
+body{
+  max-width:1000px;
+  margin:40px auto;
+}
+h1{
+  text-align: center;
+}
 canvas {
  /* background-color: gray;*/
 }
@@ -224,12 +231,40 @@ p.aside{
   font-size:12px;
   text-align: left;
   font-style:italic;
+  padding:24px;
 }
 p.credit{
   color:#333;
   font-size:12px;
   text-align: right;
   font-style:italic;
+  padding:24px;
+}
+p.credit a{
+  color:black;
+  font-weight:bold;
+}
+p.credit a:hover{
+  font-style:normal;
+}
+
+#contact_us{
+  position:fixed;
+  bottom:16px;
+  right:16px;
+  padding:7px;
+  border:1px solid #ccc;
+  background:#eee;
+  border-radius:2px;
+  display:inline-block;
+  color:#333;
+  text-decoration: none;
+  cursor:pointer;
+}
+#contact_us:hover{
+  color:black;
+  background:#ccc;
+  border:1px solid #aaa;
 }
 
 @media all and (min-width: 1001px){
@@ -251,6 +286,9 @@ p.credit{
     display:inline-block;
     width:40%;
     margin-bottom:0;
+  }
+  body{
+    margin:0 auto;
   }
 
   #outer{

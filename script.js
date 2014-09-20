@@ -252,11 +252,11 @@ $(function(){
     "endowments": [
       {
         name: "Esmee Fairbairn Foundation",
-        url: "http://esmeefairbairn.org.uk/"
+        url: "http://esmeefairbairn.org.uk/what-we-fund/finance-fund"
       }, 
       {
         name: "Lankelly Chase Foundation", 
-        url: "http://www.lankellychase.org.uk/"
+        url: "http://www.lankellychase.org.uk/our_work/social_investment"
       },
       {
         name: "Panaphur",
@@ -264,7 +264,7 @@ $(function(){
       },
       {
         name: "Barrow Cadbury",
-        url: "http://www.barrowcadbury.org.uk/"
+        url: "http://www.barrowcadbury.org.uk/social-investment/"
       },
       {
         name: "Omidyar Network",
@@ -299,19 +299,19 @@ $(function(){
     "financial": [
       {
         name: "Threadneedle Investments",
-        url: "http://www.threadneedle.co.uk/"
+        url: "http://www.threadneedle.co.uk/en/Intermediary/Funds/Funds-and-Prices/Prices-Data/OEICs/Retail-(Net)/Fixed-Income/UK-Social-Bond-Fund/"
       }, {
         name: "Deutsche Bank",
-        url: "https://www.db.com/unitedkingdom/"
+        url: "https://www.db.com/unitedkingdom/content/en/social_investments.html"
       }, {
         name: "J.P. Morgan",
-        url: "https://www.jpmorgan.com/"
+        url: "http://www.jpmorganchase.com/corporate/Corporate-Responsibility/social-finance"
       }, {
         name: "3i",
         url: "http://www.3i.com/"
       }, {
         name: "Legal and General",
-        url: "http://www.legalandgeneral.com"
+        url: "http://www.legalandgeneral.com/about-us/social-purpose/recent-news/articles/social-investment-opportunities-growing-in-the-UK.html"
       }
     ],
     "government": [
@@ -395,7 +395,7 @@ $(function(){
         url: "#"
       }, {
         name: "Nesta",
-        url: "http://www.nesta.org.uk/"
+        url: "http://www.nesta.org.uk/get-funding/impact-investments"
       }
     ],
     "l-advisors": [
@@ -479,10 +479,10 @@ $(function(){
     "non-financial": [
       {
         name: "Centrica",
-        url: "http://www.centrica.com/"
+        url: "http://ignitesocialenterprise.com/"
       }, {
         name: "Telefonica",
-        url: "http://www.telefonica.com/en/home/jsp/home.jsp"
+        url: "http://wayra.org/unltd/"
       }, {
         name: "Places for People",
         url: "http://www.placesforpeople.co.uk/"
