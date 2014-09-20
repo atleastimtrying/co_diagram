@@ -538,7 +538,15 @@ $(function(){
     $('#' + boxId).on('click', function(){
       show_tooltip(name_string);
     });
+    $('#' + boxId).on('mouseover', function(){
+      var pos = $(this).offset();
+      $('#prompt').css({top: (pos.top), left: (pos.left - $('#prompt').width() - 32) }).show();
+    });
+    $('#' + boxId).on('mouseout', function(){
+      $('#prompt').hide();
+    });
   });
+  $('#prompt').hide();
   $('#tooltip, #tooltip-bg').on('click', function(){
     hide_tooltip();
   });
