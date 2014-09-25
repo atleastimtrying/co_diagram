@@ -534,17 +534,23 @@ $(function(){
     $(names).each(function(index, element){ 
       name_string +=  '<li><a href="' + element.url + '" target="_blank">'+ element.name + "</a></li>"; 
     });
-    $('#' + boxId).addClass('clickable');
-    $('#' + boxId).on('click', function(){
+
+    var show_tip = function(){
       show_tooltip(name_string);
-    });
-    $('#' + boxId).on('mouseover', function(){
-      var pos = $(this).offset();
-      $('#prompt').css({top: (pos.top), left: (pos.left - $('#prompt').width() - 32) }).show();
-    });
-    $('#' + boxId).on('mouseout', function(){
-      $('#prompt').hide();
-    });
+    };
+    $('#' + boxId).addClass('clickable');
+    $('#' + boxId).on('click', show_tip);
+    if ('ontouchstart' in window) {
+      //no need its touch
+    }else{
+      $('#' + boxId).on('mouseover', function(){
+        var pos = $(this).offset();
+        $('#prompt').css({top: (pos.top), left: (pos.left - $('#prompt').width() - 32) }).show();
+      });
+      $('#' + boxId).on('mouseout', function(){
+        $('#prompt').hide();
+      });
+    }
   });
   $('#prompt').hide();
   $('#tooltip, #tooltip-bg').on('click', function(){
