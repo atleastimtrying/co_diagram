@@ -8,3 +8,10 @@
 #return_toggle{
   display:inline;
 }
+#tooltip-bg{
+  display:none;
+}
+#tooltip{
+  border: 1px solid #ccc;
+  position:absolute;
+}
