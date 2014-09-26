@@ -184,6 +184,7 @@ div#showhide_controls div{
   color:white;
   cursor: pointer;
   opacity:0.5;
+  max-width:200px;
 }
 div#showhide_controls div.showing{
   opacity:1;
@@ -289,6 +290,7 @@ p.credit a:hover{
     right: auto;
     text-align: center;
     padding:8px;
+    max-width:auto;
   }
   div#showhide_controls div#investment_toggle,
   div#showhide_controls div#return_toggle{
