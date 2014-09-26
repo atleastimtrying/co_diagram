@@ -2,9 +2,10 @@ html{
   font-family: 'Lato', sans-serif;
   font-weight:lighter;
 }
-body{
+#mega_container{
   max-width:1000px;
   margin:40px auto;
+  position:relative;
 }
 h1{
   text-align: center;
@@ -171,7 +172,7 @@ h2 p {
 }
 
 div#showhide_controls{
-  position:absolute;
+  position:fixed;
   top:16px;
   right:16px;
   padding:16px;
