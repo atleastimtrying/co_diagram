@@ -1,3 +1,10 @@
-h1{
-  display:none;
+#showhide_controls{
+  position:static;
+  display:block;
+}
+#investment_toggle{
+  display:inline;
+}
+#return_toggle{
+  display:inline;
 }
