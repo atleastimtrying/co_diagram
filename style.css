@@ -9,9 +9,6 @@ body{
 h1{
   text-align: center;
 }
-canvas {
- /* background-color: gray;*/
-}
 
 div.rounded {
   border-radius: 4px;
@@ -273,6 +270,13 @@ p.credit a:hover{
   border:#ccc;
   border-radius:4px;
   display:inline-block;
+}
+
+#investment_image,
+#return_image{
+  position:absolute;
+  top:0;
+  left:0;
 }
 
 @media all and (min-width: 1001px){
