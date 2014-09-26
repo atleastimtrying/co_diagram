@@ -334,7 +334,7 @@ $(function(){
     var name_string = "<h2>" + title + "</h2>";
     name_string += '<p>For example</p>'
     $(names).each(function(index, element){ 
-      name_string +=  '<li><a href="' + element.url + '" target="_blank">'+ element.name + "</a></li>"; 
+      name_string +=  '<a href="' + element.url + '" target="_blank">'+ element.name + "</a>"; 
     });
 
     var show_tip = function(){

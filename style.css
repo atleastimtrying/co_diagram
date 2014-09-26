@@ -136,11 +136,7 @@ h2 p {
   margin: 0;
   margin-bottom: 8px;
 }
-#tooltip li{
-  display:inline-block;
-  list-style:none;
-}
-#tooltip li a{
+#tooltip a{
   display:inline-block;
   padding:5px;
   border-radius:4px;
@@ -150,7 +146,7 @@ h2 p {
   cursor:pointer;
   margin:5px;
 }
-#tooltip li a:hover{
+#tooltip a:hover{
   background:#ddd;
 }
 #tooltip-bg{
