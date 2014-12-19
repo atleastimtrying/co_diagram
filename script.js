@@ -59,9 +59,9 @@ $(function(){
       {
         name: "Esmee Fairbairn Foundation",
         url: "http://esmeefairbairn.org.uk/what-we-fund/finance-fund"
-      }, 
+      },
       {
-        name: "Lankelly Chase Foundation", 
+        name: "Lankelly Chase Foundation",
         url: "http://www.lankellychase.org.uk/our_work/social_investment"
       },
       {
@@ -301,12 +301,12 @@ $(function(){
 
   var show_tooltip = function(html){
     $('#tooltip-bg').show();
-    $('#tooltip').html(html).show(); 
+    $('#tooltip').html(html).show();
   };
 
   var hide_tooltip = function(){
     $('#tooltip-bg').hide();
-    $('#tooltip').hide(); 
+    $('#tooltip').hide();
   };
 
   $('#investment_toggle').click(function(){
@@ -332,10 +332,12 @@ $(function(){
   $.each(boxes, function(boxId, names) {
     var title = $('#' + boxId).html();
     var name_string = "<h2>" + title + "</h2>";
-    name_string += '<p>For example</p>'
-    $(names).each(function(index, element){ 
-      name_string +=  '<a href="' + element.url + '" target="_blank"> '+ element.name + " </a>"; 
+    name_string += '<p>For example</p>';
+    name_string += '<ul>';
+    $(names).each(function(index, element){
+      name_string +=  '<li><a href="' + element.url + '" target="_blank"> '+ element.name + " </a></li>";
     });
+    name_string += '</ul>';
 
     var show_tip = function(){
       show_tooltip(name_string);

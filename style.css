@@ -135,20 +135,27 @@ h2 p {
   margin: 0;
   margin-bottom: 8px;
 }
+
+#tooltip ul{
+  padding:0;
+}
+
 #tooltip li{
   display:inline-block;
   list-style:none;
 }
+
 #tooltip li a{
   display:inline-block;
   padding:5px;
   border-radius:4px;
   background:#eee;
-  color:#333;
+  color:#267ace;
   text-decoration:none;
   cursor:pointer;
   margin:5px;
 }
+
 #tooltip li a:hover{
   background:#ddd;
 }
